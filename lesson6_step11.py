@@ -1,19 +1,20 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 import time
+from selenium.webdriver.common.by import By
 
-try: 
+try:
     link = "http://suninjuly.github.io/registration1.html"
     browser = webdriver.Chrome()
     browser.get(link)
-    first_name_element = browser.find_element_by_css_selector("input:required.first")
-    last_name_element = browser.find_element_by_css_selector("input:required.second")
-    email_element = browser.find_element_by_css_selector("input:required.third")
-    elements = [first_name_element, last_name_element, email_element]
-    for element in elements:
-        element.send_keys("Мой ответ")
-    # Ваш код, который заполняет обязательные поля
-    ...
+
+# Ваш код, который заполняет обязательные поля
+    input1 = browser.find_element(By.XPATH, "//label[contains(text(),'First name*')]//following-sibling::input")
+    input1.send_keys("Ivan")
+    input2 = browser.find_element(By.XPATH, "//label[contains(text(),'Last name*')]//following-sibling::input")
+    input2.send_keys("Petrov")
+    input3 = browser.find_element(By.XPATH, "//label[contains(text(),'Email*')]//following-sibling::input")
+    input3.send_keys("qwe@gmail.com")
+
     # Отправляем заполненную форму
     button = browser.find_element(By.CSS_SELECTOR, "button.btn")
     button.click()
@@ -32,6 +33,6 @@ try:
 
 finally:
     # ожидание чтобы визуально оценить результаты прохождения скрипта
-    time.sleep(10)
+    time.sleep(5)
     # закрываем браузер после всех манипуляций
     browser.quit()
