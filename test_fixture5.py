@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 link = "http://selenium1py.pythonanywhere.com/"
 
-
+#зададим область видимости scope
 @pytest.fixture(scope="class")
 def browser():
     print("\nstart browser for test..")
