@@ -13,6 +13,7 @@ def browser():
     print("\nquit browser..")
     browser.quit()
 
+#зададим автоиспользование фикстуры по умолчанию
 @pytest.fixture(autouse=True)
 def prepare_data():
     print()
