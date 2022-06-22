@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 link = "http://selenium1py.pythonanywhere.com/"
 
-
+#фикстура возвращает значение
 @pytest.fixture
 def browser():
     print("\nstart browser for test..")
